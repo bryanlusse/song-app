@@ -65,6 +65,6 @@ app.get('/location', (req, res) => {
   console.log('succes')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(process.env.PORT || 8001, () => {
+  console.log(`Spotify app listening`)
 })
