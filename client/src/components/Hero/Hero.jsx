@@ -28,7 +28,7 @@ const Header = () => {
 
   const doSomething = async (e) => {
     e.preventDefault()
-    const auth = await axios.get("http://localhost:8001/token", {
+    const auth = await axios.get("https://react-spotify--app.herokuapp.com/token", {
     })
     const token = auth.data.accessToken
     const data = await axios.get("https://api.spotify.com/v1/search", {
@@ -48,7 +48,7 @@ const Header = () => {
         },
     })
     setArtists([artist_data.data])
-    const artist_location = await axios.get("http://localhost:8001/location", {
+    const artist_location = await axios.get("https://react-spotify--app.herokuapp.com/location", {
       params: {
         artist: artist_data.data.name
     }
