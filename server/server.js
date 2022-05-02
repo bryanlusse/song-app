@@ -21,7 +21,7 @@ var fs = require("fs");
 var text = fs.readFileSync(path.resolve(__dirname, "../server/filtered_loc.dat")); 
 var textByLine = text.toString().split("\n")
 
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, '../client/public')));
 
 app.get('/token', (req, res) => {
   let spotifyApi = new spotifyWebApi(credentials)
