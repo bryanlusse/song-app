@@ -71,7 +71,7 @@ const Header = () => {
   const renderArtistsName = () => {
     return artists.map(artist => (
         <div key={artist.id+'name'} className='hero-row' style={{width: '400px'}}>
-            <h1 className="hero-title" style={{textAlign: "center"}}>
+            <h1 className="hero-title" style={{textAlign: "center", marginBottom: '100px'}}>
               <span className="text-color-main">{name || artist.name}</span>
             </h1>        
         </div>
@@ -98,7 +98,7 @@ const Header = () => {
   }
   const renderCityName = () => {
     return Array(cities).map(city => (
-        <div key={city} className='hero-row' style={{width: '400px'}}>
+        <div key={city} className='hero-row' style={{width: '400px', marginBottom: '100px'}}>
             <h1 className="hero-title" style={{textAlign: "center"}}>
               <span className="text-color-main">{name || city}</span>
             </h1>        
