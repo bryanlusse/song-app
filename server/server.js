@@ -2,10 +2,11 @@ const express = require('express')
 const cors = require('cors')
 const spotifyWebApi = require('spotify-web-api-node')
 const {Client} = require("@googlemaps/google-maps-services-js");
+const path = require('path');
 
 
 const app = express()
-const port = 8001
+const PORT = process.env.PORT || 8001;
 
 app.use(cors()) // To handle cross-origin requests
 app.use(express.json()); // To parse JSON bodies
@@ -17,10 +18,12 @@ const credentials = {
 };
 
 var fs = require("fs");
-var text = fs.readFileSync("./filtered_loc.dat");
+var text = fs.readFileSync(path.resolve(__dirname, "../server/filtered_loc.dat")); 
 var textByLine = text.toString().split("\n")
 
-app.get('/', (req, res) => {
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+app.get('/token', (req, res) => {
   let spotifyApi = new spotifyWebApi(credentials)
   spotifyApi.clientCredentialsGrant().then((data) => {
       res.json({
@@ -65,6 +68,11 @@ app.get('/location', (req, res) => {
   console.log('succes')
 })
 
-app.listen(process.env.PORT || 8001, () => {
-  console.log(`Spotify app listening`)
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/public', 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
 })
