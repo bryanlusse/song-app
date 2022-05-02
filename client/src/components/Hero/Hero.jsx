@@ -5,8 +5,6 @@ import axios from 'axios';
 import PortfolioContext from '../../context/context';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-  // cd client && npm install && npm run build - server package.json build
-
 const containerStyle = {
   width: '400px',
   height: '400px'
