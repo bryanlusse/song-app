@@ -13,7 +13,7 @@ app.use(express.json()); // To parse JSON bodies
 
 const credentials = {
   clientId: '91c83bb764d443b2b5d0a0cc9c53f7c7',
-  clientSecret: 'b256a1ffc18c4012a3a07e7820bf2278',
+  clientSecret: 'Secret',
   redirectUri: 'https://react-spotify--app.herokuapp.com/',
 };
 
