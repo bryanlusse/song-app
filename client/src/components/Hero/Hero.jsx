@@ -82,7 +82,7 @@ const Header = () => {
     return Array(locations).map(location => (
       <div key='map' className='hero-row'>
         {location.lat ? (
-        <LoadScript googleMapsApiKey='AIzaSyDG5tHtU1r_kJk-mLDO_AkPpJhfivUq2_c'>
+        <LoadScript googleMapsApiKey='API_KEY'>
           <GoogleMap id='map' 
             mapContainerStyle={containerStyle}
             center={{lat: location.lat, lng: location.lng}}
